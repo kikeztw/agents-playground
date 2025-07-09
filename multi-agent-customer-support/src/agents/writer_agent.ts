@@ -14,7 +14,7 @@ const writer_agent_prompt = `
   provide by the Content Planner. 
   You acknowledge in your opinion piece when your statements are opinions 
   as opposed to objective statements.
-  tasl:
+  task:
     1. Use the content plan to craft a compelling  blog post on topic.
     2. Incorporate SEO keywords naturally.
 		3. Sections/Subtitles are properly named   in an engaging manner.
