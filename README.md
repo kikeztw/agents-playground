@@ -4,5 +4,6 @@ This repository is dedicated to experimenting with the OpenAI Agents SDK. Its ma
 
 ## Agents List
 
-- [multi-agent-customer-support/README.md](multi-agent-customer-support/README.md)
-- [simple-sales-agent/README.md](simple-sales-agent/README.md)
+- [multi-agent-customer-support](multi-agent-customer-support/README.md)
+- [simple-sales-agent](simple-sales-agent/README.md)
+- [agent-remote-mcp-integration](agent-remote-mcp-integration/README.md)
