@@ -35,28 +35,28 @@ export const handleListTables = async (args: any) => {
     let tablesInfo = tablesResult.rows;
 
     // Si se solicita información de columnas, obtenerla para cada tabla
-    // if (parsed.includeColumns) {
-    //   for (let table of tablesInfo) {
-    //     const columnsQuery = `
-    //       SELECT 
-    //         column_name,
-    //         data_type,
-    //         is_nullable,
-    //         column_default,
-    //         character_maximum_length,
-    //         numeric_precision,
-    //         numeric_scale,
-    //         ordinal_position
-    //       FROM information_schema.columns 
-    //       WHERE table_schema = $1 
-    //         AND table_name = $2
-    //       ORDER BY ordinal_position;
-    //     `;
+    if (parsed.includeColumns) {
+      for (let table of tablesInfo) {
+        const columnsQuery = `
+          SELECT 
+            column_name,
+            data_type,
+            is_nullable,
+            column_default,
+            character_maximum_length,
+            numeric_precision,
+            numeric_scale,
+            ordinal_position
+          FROM information_schema.columns 
+          WHERE table_schema = $1 
+            AND table_name = $2
+          ORDER BY ordinal_position;
+        `;
 
-    //     const columnsResult = await client.query(columnsQuery, [parsed.schema, table.table_name]);
-    //     table.columns = columnsResult.rows;
-    //   }
-    // }
+        const columnsResult = await client.query(columnsQuery, [parsed.schema, table.table_name]);
+        table.columns = columnsResult.rows;
+      }
+    }
 
     // Query adicional para obtener información de índices y constraints
     const constraintsQuery = `
